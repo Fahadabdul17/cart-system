@@ -1,7 +1,0 @@
-{
-  "name": "cart-system",
-  "private": true,
-  "scripts": {
-    "postinstall": "cd backend && npm ci --prefer-offline --no-audit && npx prisma generate --schema=prisma/schema.prisma"
-  }
-}
