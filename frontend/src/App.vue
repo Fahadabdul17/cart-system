@@ -13,9 +13,8 @@
           </div>
           <div style="font-weight:800">Cart System</div>
         </div>
-
+        
         <nav class="nav-actions" role="navigation" aria-label="Main navigation">
-          <router-link to="/" class="nav-link">Produk</router-link>
           <button class="cart-button" @click="openCart" aria-label="Buka keranjang" ref="cartBtn">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
               <path d="M3 3h2l1.5 9h11l1.5-6H7.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
