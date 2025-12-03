@@ -15,16 +15,18 @@ generator client {
 }
 
 model Product {
-  id        String   @id @default(uuid())
-  sku       String   @unique
-  name      String
+  id          String   @id @default(uuid())
+  sku         String   @unique
+  name        String
   description String?
-  price     Decimal  @db.Decimal(10,2)
-  stock     Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  CartItems CartItem[]
+  price       Decimal  @db.Decimal(10,2)
+  stock       Int
+  image       String?   
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  CartItems   CartItem[]
 }
+
 
 model Cart {
   id        String      @id @default(uuid())
