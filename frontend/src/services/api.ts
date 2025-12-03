@@ -1,22 +1,10 @@
-import axios from 'axios';
+// frontend/src/lib/api.ts
+import axios from "axios";
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:4000/api';
+const baseURL = import.meta.env.VITE_API_URL || "http://localhost:4000";
 
 const api = axios.create({
-  baseURL: API_BASE,
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  timeout: 10000
+  baseURL
 });
-
-// basic response interceptor
-api.interceptors.response.use(
-  res => res,
-  err => {
-    // You can centralize error handling here (toast, logging)
-    return Promise.reject(err);
-  }
-);
 
 export default api;

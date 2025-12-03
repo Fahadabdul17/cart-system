@@ -1,9 +1,8 @@
-// prisma/seed.ts
 import prisma from '../src/prismaClient';
 
 async function main() {
 
-  // Hapus data lama (opsional, tapi aman untuk dev)
+
   await prisma.cartItem.deleteMany();
   await prisma.cart.deleteMany();
   await prisma.product.deleteMany();
