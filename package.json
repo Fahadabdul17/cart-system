@@ -2,6 +2,6 @@
   "name": "cart-system",
   "private": true,
   "scripts": {
-    "postinstall": "cd backend && npx prisma generate --schema=./prisma/schema.prisma"
+    "postinstall": "cd backend && npx prisma generate --schema=prisma/schema.prisma"
   }
 }
