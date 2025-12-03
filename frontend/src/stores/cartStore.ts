@@ -47,6 +47,55 @@ export const useCartStore = defineStore('cart', {
     clear() {
       this.cartId = null;
       this.items = [];
+    },
+
+    // -----------------------------
+    // New actions for drawer controls
+    // -----------------------------
+
+    /**
+     * Tambah qty 1 pada item, jika tidak ada buat baru (qty=1)
+     */
+    increment(productId: string) {
+      const it = this.items.find(i => i.productId === productId);
+      if (it) {
+        it.qty = it.qty + 1;
+      } else {
+        // kalau ingin membuat item baru saat increment dipanggil tanpa ada item:
+        // this.items.push({ productId, qty: 1, price: '0', product: null });
+      }
+    },
+
+    /**
+     * Kurangi qty 1 pada item. Jika qty <= 0 maka hapus item.
+     */
+    decrement(productId: string) {
+      const it = this.items.find(i => i.productId === productId);
+      if (!it) return;
+      it.qty = it.qty - 1;
+      if (it.qty <= 0) {
+        this.remove(productId);
+      }
+    },
+
+    /**
+     * Set qty langsung (mis. dari input number). Jika qty <= 0 hapus item.
+     */
+    setQty(productId: string, qty: number) {
+      const it = this.items.find(i => i.productId === productId);
+      if (!it) return;
+      if (Number.isNaN(qty) || qty <= 0) {
+        this.remove(productId);
+      } else {
+        it.qty = Math.floor(qty);
+      }
+    },
+
+    /**
+     * Hapus item dari cart
+     */
+    remove(productId: string) {
+      this.items = this.items.filter(i => i.productId !== productId);
     }
   }
 });
